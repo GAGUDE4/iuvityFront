@@ -73,6 +73,13 @@ export class KardexComponent implements OnInit {
         setTimeout(() => {
           this.alert = false;
         }, 1000);
+      },
+      err =>{
+        this.txtAlert = "Inventario Insuficiente"
+        this.alert = true;
+        setTimeout(() => {
+          this.alert = false;
+        }, 1000);
       }
     );
 
