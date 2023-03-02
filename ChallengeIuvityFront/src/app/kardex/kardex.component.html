@@ -75,31 +75,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="headerTable">
-                    <div class="caja-body font">1</div>
-                    <div class="caja-body font">02/03/2023</div>
+                <div class="headerTable" *ngFor="let item of data " [ngStyle]="{'background-color': item.detalle == 'Venta' ? '#F4F1F1' : 'white'}"> 
+                    <div class="caja-body font">{{item.id}}</div>
+                    <div class="caja-body font">{{item.fecha}}</div>
                     <div class="caja-body">
-                        <div class="font">Compra</div>
+                        <div class="font">{{item.detalle}}</div>
                     </div>
                     <div class="caja-body">
                         <div class="sub-caja-body">
-                            <div class="font2">10</div>
-                            <div class="font2">$ 10.000</div>
-                            <div class="font2">$ 100.000</div>
+                            <div class="font2">{{item.cantidadEntrada}}</div>
+                            <div class="font2">{{item.vrUnitarioEntrada}}</div>
+                            <div class="font2">{{item.vrTotalEntrada}}</div>
                         </div>
                     </div>
                     <div class="caja-body">
                         <div class="sub-caja-body">
-                            <div class="font2">-</div>
-                            <div class="font2">-</div>
-                            <div class="font2">-</div>
+                            <div class="font2">{{item.cantidadSalida}}</div>
+                            <div class="font2">{{item.vrUnitarioSalida}}</div>
+                            <div class="font2">{{item.vrTotalSalida}}</div>
                         </div>
                     </div>
                     <div class="caja-body">
                         <div class="sub-caja-body">
-                            <div class="font2">32</div>
-                            <div class="font2">$ 14.911</div>
-                            <div class="font2">$ 100.000</div>
+                            <div class="font2">{{item.cantidadSaldos}}</div>
+                            <div class="font2">{{item.vrUnitarioSaldos}}</div>
+                            <div class="font2"><strong>{{item.vrTotalSaldos}}</strong></div>
                         </div>
                     </div>
                 </div>

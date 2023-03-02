@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Item } from '../modules/item';
+import { ItemServiceService } from '../services/item-service.service';
 
 @Component({
   selector: 'app-kardex',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KardexComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+
+  constructor(private itemService: ItemServiceService) { }
 
   ngOnInit(): void {
+    this.itemService.getLista().subscribe(
+      res => {
+        console.log(res)
+        this.data = JSON.parse(res.toString());
+        console.log(this.data)
+      }
+    );
   }
 
 }
