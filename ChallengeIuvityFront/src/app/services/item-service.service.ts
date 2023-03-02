@@ -9,10 +9,6 @@ import { Item } from '../modules/item';
 export class ItemServiceService {
 
   url: string = '/kardex';
-  private httpHeader = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-       "Authorization": "Basic " + btoa("Admin:admin") 
-      });
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +18,8 @@ export class ItemServiceService {
   }
 
   postAddItem(item: Item): Observable<Item> {
-    return this.http.post<Item>(`${this.url}/addProduct`, item, { headers: this.httpHeader })
+    const headers  = new HttpHeaders({Authorization: 'Basic ' + btoa("Admin:admin")})
+    return this.http.post<Item>('/kardex/addProduct', item, { headers, responseType: 'text' as 'json'})
   }
   
 }

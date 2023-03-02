@@ -1,6 +1,6 @@
-<div class="container-principal">
+<div class="container-principal" >
     <div class="header">
-        <div class="boxLogo">
+        <div class="boxLogo" (click)="home()">
             <img class="logo" src="https://media.licdn.com/dms/image/C4E0BAQEBDHTIiXnKeQ/company-logo_200_200/0/1661374792360?e=2147483647&v=beta&t=dvAqGepzvulw2c1s4TqIKx6bpSknpsHaYxfaEYrdRhw" alt="">
         </div>
         <div class="tittle">
@@ -13,15 +13,18 @@
         <div class="sidebar">
             <div>
                 <div class="btn-box">
-                    <button class="btn sixth">Aumento de Stock</button>
+                    <button class="btn sixth" (click)="stock(true)">Aumento de Stock</button>
                 </div>
                 <div class="btn-box">
-                    <button class="btn sixth">Venta de Stock</button>
+                    <button class="btn sixth" (click)="stock(false)">Venta de Stock</button>
+                </div>
+                <div class="btn-box" *ngIf="formulario" style="margin-left: 23px"> 
+                    <button class="btn sixth" (click)="home()">Registros</button>
                 </div>
             </div>
         </div>
-        <div class="container-central">
-            <div class="cabezera-table">
+        <div class="container-central"*ngIf="!formulario">
+            <div class="cabezera-table" >
                 <div class="titular-Table sketchy">
                     <h6 style="margin-left: 74;">Producto</h6>
                     <hr>
@@ -104,6 +107,32 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-central" *ngIf="formulario">
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+                <div>
+                  <label for="detalle">
+                    Detalle
+                  </label>
+                  <input id="detalle" type="text" formControlName="detalle" placeholder="{{detalleType}}">
+                </div>
+                <div>
+                  <label for="cantidad">
+                    Cantidad 
+                  </label>
+                  <input id="cantidad" type="number" formControlName="cantidad">
+                </div>
+                <div>
+                  <label for="unitario">
+                    Vr Unitario 
+                  </label>
+                  <input id="unitario" type="number" formControlName="unitario">
+                </div>
+                <button class="button" type="submit">{{txtButton}}</button>
+                <div style="display: flex; justify-content: center;" *ngIf="alert">
+                    <p>{{txtAlert}}</p>
+                </div>
+              </form>
         </div>
     </div>
 </div>
