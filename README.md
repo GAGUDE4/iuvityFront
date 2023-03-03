@@ -10,6 +10,6 @@ npm install
 npm start
 ```
 
-Ejecucion en 
+Execution in
 
 `localhost:4200`
