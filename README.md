@@ -5,7 +5,7 @@
 ##### Getting started
 
 ```
-https://github.com/GAGUDE4/iuvityChallenge.git
+https://github.com/GAGUDE4/iuvityFront.git
 npm install
 npm start
 ```
